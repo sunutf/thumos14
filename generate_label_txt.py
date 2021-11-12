@@ -44,13 +44,13 @@ for video in train_l :
     f.write("%s,%d,%d"%(name,duration,label))
     if len(second_label) != 0:
         second_label = video[5][0]#class_l.index(video[4][0])
-        f.write("%d"%second_label)
+        f.write(",%d"%second_label)
     f.write("\n")
 f.close()
         
 
-#generate test_split.txt
-f = open('thumos_test_split.txt', 'w')
+#generate val_split.txt
+f = open('thumos_val_split.txt', 'w')
 for video in test_l :
     name = video[0][0]
     label = video[3][0]#class_l.index(video[2][0])+1
@@ -62,6 +62,6 @@ for video in test_l :
     f.write("%s,%d,%d"%(name,duration,label))
     if len(second_label) != 0:
         second_label = video[-1][0]#class_l.index(video[-2][0])
-        f.write("%d"%second_label)
+        f.write(",%d"%second_label)
     f.write("\n")
 f.close
